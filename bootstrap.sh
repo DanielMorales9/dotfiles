@@ -39,7 +39,15 @@ then
    /bin/bash -c "$(curl -fsSL $BREW_URL)"
 fi
 
+# install sw
+if [[ $OS_CODE -eq 1 ]] ;
+then
+  brew install git bash-completion@2 direnv wget
+  brew cask install intellij-idea spotify spectacle caffeine
+fi
+
 _bash_file=$( if [[ $OS_CODE -eq 1 ]] ; then echo ".bash_profile"; else echo ".bashrc"; fi )
 [[ ! -f "$HOME"/"$_bash_file" ]] && ln -s "$HOME"/dotfiles/.bash_profile "$HOME"/"$_bash_file"
 
-source "$HOME/$_bash_file"
+# shellcheck disable=SC1090
+source "$HOME/${_bash_file}"

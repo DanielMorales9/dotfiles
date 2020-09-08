@@ -3,7 +3,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 export CLICOLOR=1
 
 # ANSI COLOR CODES
-function ansi-color() {
+ansi_color() {
     _code=$1
     OPEN_B="\001"
     CLOSE_B="\002"
@@ -11,18 +11,18 @@ function ansi-color() {
     echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
 }
 
-GREEN=$(ansi-color "32")
-YELLOW=$(ansi-color "33")
-WHITE=$(ansi-color "97")
-MAGENTA=$(ansi-color "35")
-B_MAGENTA=$(ansi-color "45")
-BLACK=$(ansi-color "33")
-RED=$(ansi-color "31")
-BLUE=$(ansi-color "34")
-RESET=$(ansi-color "0")
-BOLD=$(ansi-color "1")
-DIM=$(ansi-color "2")
-UNDERLINED=$(ansi-color "4")
+GREEN=$(ansi_color "32")
+YELLOW=$(ansi_color "33")
+WHITE=$(ansi_color "97")
+MAGENTA=$(ansi_color "35")
+B_MAGENTA=$(ansi_color "45")
+BLACK=$(ansi_color "33")
+RED=$(ansi_color "31")
+BLUE=$(ansi_color "34")
+RESET=$(ansi_color "0")
+BOLD=$(ansi_color "1")
+DIM=$(ansi_color "2")
+UNDERLINED=$(ansi_color "4")
 
 # EDITOR
 export EDITOR=/usr/bin/nano
@@ -30,11 +30,27 @@ export EDITOR=/usr/bin/nano
 # Set default blocksize for ls, df, du
 export BLOCKSIZE=1k
 
+
+_github_user_consent_url="https://raw.githubusercontent.com/"
+_git_completion_path="git/git/master/contrib/completion"
+_output_completion="/usr/local/share"
+_git_prompt="git-prompt.sh"
+_git_completion="git-completion.bash"
 # BASH COMPLETION
-# TODO make completion dotfile
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-[[ -f "/usr/local/share/git-completion.bash" ]] && . /usr/local/share/git-completion.bash
-[[ -f "/usr/local/share/git-prompt.sh" ]] && . /usr/local/share/git-prompt.sh
+if [[ ! -f "${_output_completion}/${_git_completion}" ]] ;
+then
+    wget "${_github_user_consent_url}/${_git_completion_path}/${_git_completion}"
+    mv "${_git_completion}" "${_output_completion}/${_git_completion}"
+fi
+
+if [[ ! -f "${_output_completion}/${_git_prompt}" ]] ;
+then
+    wget "${_github_user_consent_url}/${_git_completion_path}/${_git_prompt}"
+    mv "${_git_prompt}" "${_output_completion}/${_git_prompt}"
+fi
+
+. /usr/local/share/git-completion.bash
+. /usr/local/share/git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
