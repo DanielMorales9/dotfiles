@@ -4,6 +4,7 @@ TRUE=0
 FALSE=1
 BREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 
+# TODO Refactor this into utils.bash
 function get_os_code() {
     unameOut="$(uname -s)"
     case "${unameOut}" in
@@ -42,7 +43,7 @@ fi
 # install sw
 if [[ $OS_CODE -eq 1 ]] ;
 then
-  brew install git bash-completion@2 direnv wget
+  brew install git bash-completion@2 direnv wget tree
   brew cask install intellij-idea spotify spectacle caffeine gitkraken docker dropbox
 fi
 
