@@ -12,6 +12,7 @@ alias ~="cd ~"                              # ~:            Go Home
 
 # TODO this works only on OSX
 alias cask='brew cask'
+alias da='direnv allow'
 
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
