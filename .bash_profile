@@ -30,6 +30,13 @@ export EDITOR=/usr/bin/nano
 # Set default blocksize for ls, df, du
 export BLOCKSIZE=1k
 
+# HISTORY
+export HISTFILE=$HOME/.history
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignorespace:erasedups
+export HISTIGNORE="ls:ps:history"
+shopt -s histappend
 
 _github_user_consent_url="https://raw.githubusercontent.com/"
 _git_completion_path="git/git/master/contrib/completion"
