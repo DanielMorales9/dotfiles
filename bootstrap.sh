@@ -43,7 +43,7 @@ fi
 # install sw
 if [[ $OS_CODE -eq 1 ]] ;
 then
-  brew install git bash-completion@2 direnv wget tree htop
+  brew install git bash-completion@2 direnv wget tree htop terraform
   brew cask install intellij-idea spotify spectacle caffeine gitkraken docker dropbox
 fi
 

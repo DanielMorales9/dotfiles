@@ -14,6 +14,7 @@ alias ~="cd ~"                              # ~:            Go Home
 alias cask='brew cask'
 alias da='direnv allow'
 alias mvt='mvn -DskipTests'
+alias tf='terraform'
 
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
