@@ -44,7 +44,6 @@ fi
 if [[ $OS_CODE -eq 1 ]] ;
 then
   brew install git bash-completion@2 direnv wget tree htop terraform
-  brew cask install intellij-idea spotify spectacle caffeine gitkraken docker dropbox
 fi
 
 _bash_file=$( if [[ $OS_CODE -eq 1 ]] ; then echo ".bash_profile"; else echo ".bashrc"; fi )
