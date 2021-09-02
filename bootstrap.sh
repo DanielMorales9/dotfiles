@@ -3,6 +3,7 @@
 TRUE=0
 FALSE=1
 BREW_URL="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+DESIRED_SHELL="/bin/bash"
 
 # TODO Refactor this into utils.bash
 function get_os_code() {
@@ -23,6 +24,12 @@ function exists() {
         exit $TRUE
     fi
 }
+
+if [[ "$SHELL" != "$DESIRED_SHELL" ]]
+then
+  echo "Changing shell to $DESIRED_SHELL"
+  chsh -s "$DESIRED_SHELL"
+fi
 
 OS_CODE=$(get_os_code)
 
