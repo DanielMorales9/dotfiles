@@ -50,7 +50,7 @@ fi
 # install sw
 if [[ $OS_CODE -eq 1 ]] ;
 then
-  brew install git bash-completion@2 direnv wget tree htop terraform
+  brew install git bash-completion@2 direnv wget tree htop terraform coreutils
 fi
 
 _bash_file=$( if [[ $OS_CODE -eq 1 ]] ; then echo ".bash_profile"; else echo ".bashrc"; fi )
