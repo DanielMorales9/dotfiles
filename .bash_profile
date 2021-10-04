@@ -68,5 +68,8 @@ eval "$(direnv hook bash)"
 # activate aliases
 source "$HOME/dotfiles/.aliases"
 
+# activate functions
+source "$HOME/dotfiles/.functions"
+
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"
