@@ -66,10 +66,10 @@ export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGEN
 eval "$(direnv hook bash)"
 
 # activate aliases
-source "$HOME/dotfiles/.aliases"
+source "$HOME/dotfiles/.aliases.sh"
 
 # activate functions
-source "$HOME/dotfiles/.functions"
+source "$HOME/dotfiles/.functions.sh"
 
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"

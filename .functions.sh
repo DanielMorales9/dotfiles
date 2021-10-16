@@ -42,3 +42,24 @@ EOF
     chmod +x prefix
     mv prefix .git/hooks/prepare-commit-msg
 }
+
+# brings you back to project root
+function proot {
+  if [[ -z "${ROOT}" ]]; then
+    echo "No Project Directory Root found. Ensure ROOT environment variable is set"
+  else
+    cd "${ROOT}"
+  fi
+}
+
+# inits project with useful stuff
+function pinit {
+  # writes a envrc file
+  cat <<\EOF > .envrc
+export ROOT="$(pwd)"
+EOF
+
+  # ignores .envrc file
+  printf "\n.envrc" >> .gitignore
+
+}
