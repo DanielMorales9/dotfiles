@@ -54,6 +54,7 @@ function proot {
 
 # inits project with useful stuff
 function pinit {
+  prefix
   # writes a envrc file
   cat <<\EOF > .envrc
 export ROOT="$(pwd)"
