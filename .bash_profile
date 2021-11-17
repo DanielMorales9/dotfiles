@@ -38,26 +38,7 @@ export HISTCONTROL=ignorespace:erasedups
 export HISTIGNORE="ls:ps:history"
 shopt -s histappend
 
-_github_user_consent_url="https://raw.githubusercontent.com/"
-_git_completion_path="git/git/master/contrib/completion"
-_output_completion="/usr/local/share"
-_git_prompt="git-prompt.sh"
-_git_completion="git-completion.bash"
-# BASH COMPLETION
-if [[ ! -f "${_output_completion}/${_git_completion}" ]] ;
-then
-    wget "${_github_user_consent_url}/${_git_completion_path}/${_git_completion}"
-    mv "${_git_completion}" "${_output_completion}/${_git_completion}"
-fi
-
-if [[ ! -f "${_output_completion}/${_git_prompt}" ]] ;
-then
-    wget "${_github_user_consent_url}/${_git_completion_path}/${_git_prompt}"
-    mv "${_git_prompt}" "${_output_completion}/${_git_prompt}"
-fi
-
-. /usr/local/share/git-completion.bash
-. /usr/local/share/git-prompt.sh
+source "$HOME/dotfiles/bash_completion.sh"
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
@@ -66,10 +47,10 @@ export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGEN
 eval "$(direnv hook bash)"
 
 # activate aliases
-source "$HOME/dotfiles/.aliases.sh"
+source "$HOME/dotfiles/aliases.sh"
 
 # activate functions
-source "$HOME/dotfiles/.functions.sh"
+source "$HOME/dotfiles/functions.sh"
 
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"
