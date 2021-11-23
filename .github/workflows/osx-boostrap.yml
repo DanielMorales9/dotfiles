@@ -1,4 +1,4 @@
-name: OSX bootstrap
+name: OSX integration
 on: [push]
 jobs:
   build:
