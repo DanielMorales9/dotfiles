@@ -48,19 +48,54 @@ function proot {
   if [[ -z "${ROOT}" ]]; then
     echo "No Project Directory Root found. Ensure ROOT environment variable is set"
   else
-    cd "${ROOT}"
+    cd "${ROOT}" || exit
   fi
 }
 
-# inits project with useful stuff
-function pinit {
-  prefix
+DEFAULT_PY_VERSION=3.7.12
+function init_direnv {
+  if [[ -z "$1" ]]; then
+    version="$DEFAULT_PY_VERSION";
+  else
+    version="$1";
+  fi;
+
+  if [[ -z "$2" ]]; then
+    name=$(basename "$(pwd)");
+  else
+    name="$2";
+  fi;
+
   # writes a envrc file
   cat <<\EOF > .envrc
 export ROOT="$(pwd)"
+
+EOF
+
+  cat <<EOF >> .envrc
+py_version=${version}
+pv_env=${name}
+
+EOF
+
+  cat <<\EOF >> .envrc
+use python ${py_version}
+# Create the virtualenv if not yet done
+layout virtualenv ${py_version} ${pv_env}
+# activate it
+layout activate ${pv_env}-${py_version}
 EOF
 
   # ignores .envrc file
   printf "\n.envrc" >> .gitignore
 
+}
+
+# inits project with useful stuff
+function pinit {
+  # git prefix commits
+  prefix
+
+  # setup envrc
+  init_direnv "$@"
 }

@@ -46,6 +46,15 @@ export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGEN
 # Enable Direnv Allow Hook
 eval "$(direnv hook bash)"
 
+# virtualenv
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+export -f show_virtual_env
+PS1='$(show_virtual_env) '$PS1
+
 # activate aliases
 source "$HOME/dotfiles/aliases.sh"
 
