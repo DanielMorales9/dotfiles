@@ -84,11 +84,13 @@ then
   brew install wget
   brew install tree
   brew install htop
-  brew install terraform
+  brew install tfenv
   brew install coreutils
   brew install pyenv
   brew install virtualenv
   brew install pyenv-virtualenv
+  brew install openjdk@8
+  brew install apache-spark
 
   # install cask
   brew tap homebrew/cask
