@@ -85,6 +85,7 @@ then
   brew install tree
   brew install htop
   brew install tfenv
+  brew install pre-commit
   brew install coreutils
   brew install pyenv
   brew install virtualenv
