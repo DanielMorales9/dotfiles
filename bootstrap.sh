@@ -95,9 +95,9 @@ then
   brew install cask
 
   # install apps
-  brew install --cask --appdir="/Applications" dropbox
-  brew install --cask --appdir="/Applications" docker
-  brew install --cask --appdir="/Applications" spotify
+  # brew install --cask --appdir="/Applications" dropbox
+  # brew install --cask --appdir="/Applications" docker
+  # brew install --cask --appdir="/Applications" spotify
 
 fi
 
