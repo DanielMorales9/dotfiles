@@ -1,4 +1,4 @@
-# BASH COMPLETION
+# BASH
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 GITHUB_URL="https://raw.githubusercontent.com"
 
@@ -26,12 +26,12 @@ fi
 
 # docker completion
 docker_etc="/Applications/Docker.app/Contents/Resources/etc"
-if [[ ! -f "${docker_etc}" && -f "${COMPLETION_DIR}/docker.bash-completion" ]] ;
+if [[ ! -f "${COMPLETION_DIR}/docker.bash-completion" ]] ;
 then
   ln -s "${docker_etc}/docker.bash-completion" "${COMPLETION_DIR}/docker"
 fi
 
-if [[ ! -f "${docker_etc}" && -f "${COMPLETION_DIR}/docker-compose.bash-completion" ]] ;
+if [[ ! -f "${COMPLETION_DIR}/docker-compose.bash-completion" ]] ;
 then
   ln -s "${docker_etc}/docker-compose.bash-completion" "${COMPLETION_DIR}/docker-compose"
 fi

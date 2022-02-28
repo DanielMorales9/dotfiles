@@ -63,3 +63,7 @@ source "$HOME/dotfiles/functions.sh"
 
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
