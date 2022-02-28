@@ -20,9 +20,9 @@ function get_os_code() {
 function exists() {
     if ! command -v $1 &> /dev/null
     then
-        exit $FALSE
+        echo "$FALSE"
     else
-        exit $TRUE
+        echo "$TRUE"
     fi
 }
 
