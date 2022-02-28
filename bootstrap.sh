@@ -77,8 +77,6 @@ fi
 
 if [[ $OS_CODE -eq 1 ]] ;
 then
-  xcode-select --install
-
   # install tools
   brew install git
   brew install bash-completion@2
