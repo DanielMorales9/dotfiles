@@ -77,6 +77,8 @@ fi
 
 if [[ $OS_CODE -eq 1 ]] ;
 then
+  xcode-select --install
+
   # install tools
   brew install git
   brew install bash-completion@2
@@ -89,6 +91,8 @@ then
   brew install pyenv
   brew install virtualenv
   brew install pyenv-virtualenv
+  brew install openjdk@8
+  brew install apache-spark
 
   # install cask
   brew tap homebrew/cask
