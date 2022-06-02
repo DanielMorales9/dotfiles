@@ -92,6 +92,8 @@ then
   brew install pyenv-virtualenv
   brew install openjdk@8
   brew install apache-spark
+  brew install kubectl
+  brew install minikube
 
   # install cask
   brew tap homebrew/cask
@@ -108,7 +110,6 @@ setup_direnvrc
 
 _bash_file=$( if [[ $OS_CODE -eq 1 ]] ; then echo ".bash_profile"; else echo ".bashrc"; fi )
 [[ ! -f "$HOME"/"$_bash_file" ]] && ln -s "$HOME"/dotfiles/.bash_profile "$HOME"/"$_bash_file"
-
 
 # shellcheck disable=SC1090
 source "$HOME/${_bash_file}"

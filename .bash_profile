@@ -41,8 +41,6 @@ export HISTCONTROL=ignorespace:erasedups
 export HISTIGNORE="ls:ps:history"
 shopt -s histappend
 
-source "$HOME/dotfiles/bash_completion.sh"
-
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
 
@@ -64,11 +62,12 @@ source "$HOME/dotfiles/aliases.sh"
 # activate functions
 source "$HOME/dotfiles/functions.sh"
 
+# activate complet–ion
+source "$HOME/dotfiles/bash_completion.sh"
+
+# activate environments
+source "$HOME/dotfiles/envs.sh"
+
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"
 
-# setting envs
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v "$JAVA_VERSION")
-export SPARK_HOME="/usr/local/Cellar/apache-spark/$SPARK_LATEST/libexec"
