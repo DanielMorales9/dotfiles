@@ -41,8 +41,6 @@ export HISTCONTROL=ignorespace:erasedups
 export HISTIGNORE="ls:ps:history"
 shopt -s histappend
 
-source "$HOME/dotfiles/bash_completion.sh"
-
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
 
@@ -66,6 +64,9 @@ source "$HOME/dotfiles/functions.sh"
 
 # activate private
 [[ -f "$HOME/.private" ]] && source "$HOME/.private"
+
+# activate completion
+source "$HOME/dotfiles/bash_completion.sh"
 
 # setting envs
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"

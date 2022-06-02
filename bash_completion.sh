@@ -2,7 +2,8 @@
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 GITHUB_URL="https://raw.githubusercontent.com"
 
-# git completion
+# PREP WORK
+# git completion preparation
 _git_base="git/git/master/contrib/completion"
 _git_prompt="git-prompt.sh"
 _git_completion="git-completion.bash"
@@ -19,12 +20,7 @@ then
     mv "${_git_prompt}" "${COMPLETION_DIR}/${_git_prompt}"
 fi
 
-# shellcheck disable=SC1090
-source "${COMPLETION_DIR}/${_git_completion}"
-# shellcheck disable=SC1090
-source "${COMPLETION_DIR}/${_git_prompt}"
-
-# docker completion
+# docker completion preparation
 docker_etc="/Applications/Docker.app/Contents/Resources/etc"
 if [[ -d "${COMPLETION_DIR}" && ! -L "${COMPLETION_DIR}/docker" ]] ;
 then
@@ -36,7 +32,18 @@ then
   ln -s "${docker_etc}/docker-compose.bash-completion" "${COMPLETION_DIR}/docker-compose"
 fi
 
-# shellcheck disable=SC1090
+# SOURCING COMPLETION
+
+# git completion
+source "${COMPLETION_DIR}/${_git_completion}"
+# git prompt
+source "${COMPLETION_DIR}/${_git_prompt}"
+
+# docker completion
 source "${COMPLETION_DIR}/docker"
-# shellcheck disable=SC1090
+# docker-compose completion
 source "${COMPLETION_DIR}/docker-compose"
+
+# kubectl completion
+source "${COMPLETION_DIR}/kubectl"
+complete -F __start_kubectl k
