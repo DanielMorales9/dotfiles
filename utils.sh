@@ -57,6 +57,7 @@ function get_bash_file() {
 }
 
 function change_shell() {
+    DESIRED_SHELL=$1
     if [[ "$SHELL" != "$DESIRED_SHELL" ]] ; 
     then
         echo "Changing shell to $DESIRED_SHELL"
@@ -65,8 +66,9 @@ function change_shell() {
 }
 
 function link_bash_file() {
-
     _bash_file=$(get_bash_file)
-    [[ ! -f "$HOME"/"$_bash_file" ]] && ln -s "$HOME"/dotfiles/.bash_profile "$HOME"/"$_bash_file"
+    # if file not exists
+    ln -sf "$HOME/dotfiles/.bash_profile" "$HOME/$_bash_file"
+    echo "${_bash_file}"
 }
 

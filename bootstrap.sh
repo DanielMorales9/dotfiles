@@ -15,7 +15,7 @@ else
   exit 1
 fi
 
-change_shell
+change_shell $DESIRED_SHELL
 
 install_packages
 
@@ -23,7 +23,4 @@ install_apps
 
 setup_direnvrc
 
-link_bash_file
-
-# shellcheck disable=SC1090
-source "$HOME/${_bash_file}"
+source "$HOME/$(link_bash_file)"
