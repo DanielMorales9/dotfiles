@@ -48,12 +48,12 @@ EOF
 
 function get_bash_file() {
     OS_CODE=$(get_os_code)
-  if [[ $OS_CODE -eq 1 ]] ; 
-  then 
-    echo ".bash_profile"; 
-  else 
-    echo ".bashrc"; 
-  fi
+    if [[ $OS_CODE -eq 1 ]] ; 
+    then 
+        echo ".bash_profile"; 
+    else 
+        echo ".bashrc"; 
+    fi
 }
 
 function change_shell() {
