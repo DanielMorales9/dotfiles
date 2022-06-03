@@ -1,23 +1,20 @@
 # BASH
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
-GITHUB_URL="https://raw.githubusercontent.com"
+GITHUB_URL="https://raw.githubusercontent.com/git/git/master/contrib/completion"
 
 # PREP WORK
 # git completion preparation
-_git_base="git/git/master/contrib/completion"
 _git_prompt="git-prompt.sh"
 _git_completion="git-completion.bash"
 
 if [[ ! -f "${COMPLETION_DIR}/${_git_completion}" ]] ;
 then
-    wget "${GITHUB_URL}/${_git_base}/${_git_completion}"
-    mv "${_git_completion}" "${COMPLETION_DIR}/${_git_completion}"
+    wget -O "${COMPLETION_DIR}/${_git_completion}" "${GITHUB_URL}/${_git_completion}"
 fi
 
 if [[ ! -f "${COMPLETION_DIR}/${_git_prompt}" ]] ;
 then
-    wget "${GITHUB_URL}/${_git_base}/${_git_prompt}"
-    mv "${_git_prompt}" "${COMPLETION_DIR}/${_git_prompt}"
+    wget -O "${COMPLETION_DIR}/${_git_prompt}" "${GITHUB_URL}/${_git_prompt}"
 fi
 
 # docker completion preparation
