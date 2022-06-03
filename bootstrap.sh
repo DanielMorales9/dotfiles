@@ -23,6 +23,4 @@ install_apps
 
 setup_direnvrc
 
-bash_profile=$(link_bash_file)
-
-source "$HOME/$bash_profile"
+source "$(link_bash_file)"
