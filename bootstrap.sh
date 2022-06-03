@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+echo "$PWD"
+
 DESIRED_SHELL="/bin/bash"
 
 source utils.sh
