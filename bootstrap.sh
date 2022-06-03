@@ -103,6 +103,7 @@ then
   # brew install --cask --appdir="/Applications" dropbox
   # brew install --cask --appdir="/Applications" docker
   # brew install --cask --appdir="/Applications" spotify
+  brew install --cask --appdir="/Applications" virtualbox
 
 fi
 
