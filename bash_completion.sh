@@ -1,40 +1,33 @@
 # BASH
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 
-function get_github_completion() {
-	github_url="https://raw.githubusercontent.com/git/git/master/contrib/completion"
-
-	if [[ ! -f "${COMPLETION_DIR}/$1" ]] ;
-	then
-    	wget -O "${COMPLETION_DIR}/$1" "${github_url}/$1"
-	fi
+function get_cmd_completion() {
+	[[ ! -f "${COMPLETION_DIR}/$2" ]] && wget -O "${COMPLETION_DIR}/$2" "${$1}/$2"
 }
 
-function get_docker_completion() {
-	docker_etc="/Applications/Docker.app/Contents/Resources/etc"
-	if [[ -d "${COMPLETION_DIR}" && ! -L "${COMPLETION_DIR}/$1" ]] ;
-	then
-  		ln -s "${docker_etc}/$1" "${COMPLETION_DIR}/$1"
-	fi
+function link_cmd_completion() {
+	[[ ! -L "${COMPLETION_DIR}/$2" ]] && ln -s "$1/$2" "${COMPLETION_DIR}/$2"
 }
 
 # PREP WORK
 # git completion preparation
+_github_url="https://raw.githubusercontent.com/git/git/master/contrib/completion"
 _git_prompt="git-prompt.sh"
 _git_completion="git-completion.bash"
 
-get_github_completion $_git_prompt
+get_cmd_completion $_github_url $_git_prompt
 
-get_github_completion $_git_completion
+get_cmd_completion $_github_url $_git_completion
 
 
 # docker completion preparation
+_docker_etc="/Applications/Docker.app/Contents/Resources/etc"
 _docker="docker.bash-completion"
 _docker_compose="docker-compose.bash-completion"
 
-get_docker_completion $_docker
+link_cmd_completion $_docker_etc $_docker
 
-get_docker_completion $_docker_compose
+link_cmd_completion $_docker_etc $_docker_compose
 
 
 # SOURCE COMPLETION
