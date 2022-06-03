@@ -6,7 +6,6 @@ DESIRED_SHELL="/bin/bash"
 source utils.sh
 
 OS_CODE=$(get_os_code)
-
 if [[ $OS_CODE -eq 1 ]] ;
 then
   source bootstrap_osx.sh
