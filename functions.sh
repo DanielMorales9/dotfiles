@@ -1,9 +1,9 @@
-trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
+function trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+function ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+function zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 
 # extract:  Extract most know archives with one command
-extract () {
+function extract () {
     if [ -f $1 ] ; then
       case $1 in
         *.tar.bz2)   tar xjf $1     ;;
@@ -98,4 +98,18 @@ function pinit {
 
   # setup envrc
   init_direnv "$@"
+}
+
+function show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+
+function ansi_color() {
+    _code=$1
+    OPEN_B="\001"
+    CLOSE_B="\002"
+    ANSI_ESC="\033["
+    echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
 }

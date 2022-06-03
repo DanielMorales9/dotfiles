@@ -1,12 +1,13 @@
 #!/bin/bash
 set -ex
 
+echo "$PWD"
+
 DESIRED_SHELL="/bin/bash"
 
 source utils.sh
 
 OS_CODE=$(get_os_code)
-
 if [[ $OS_CODE -eq 1 ]] ;
 then
   source bootstrap_osx.sh
@@ -22,5 +23,3 @@ install_packages
 install_apps
 
 setup_direnvrc
-
-source "$HOME/$(link_bash_file)"

@@ -1,19 +1,19 @@
-SPARK_LATEST="3.2.1"
-JAVA_VERSION="1.8.0"
+# activate aliases
+source "$HOME/dotfiles/aliases.sh"
 
-# LS COLORS
-export LSCOLORS=exfxcxdxbxegedabagacad
-export CLICOLOR=1
+# activate functions
+source "$HOME/dotfiles/functions.sh"
+
+# activate complet–ion
+source "$HOME/dotfiles/bash_completion.sh"
+
+# activate environments
+source "$HOME/dotfiles/envs.sh"
+
+# activate private
+[[ -f "$HOME/.private" ]] && source "$HOME/.private"
 
 # ANSI COLOR CODES
-ansi_color() {
-    _code=$1
-    OPEN_B="\001"
-    CLOSE_B="\002"
-    ANSI_ESC="\033["
-    echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
-}
-
 GREEN=$(ansi_color "32")
 YELLOW=$(ansi_color "33")
 WHITE=$(ansi_color "97")
@@ -47,27 +47,5 @@ export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGEN
 # Enable Direnv Allow Hook
 eval "$(direnv hook bash)"
 
-# virtualenv
-show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-    echo "($(basename $VIRTUAL_ENV))"
-  fi
-}
-export -f show_virtual_env
+# show virtualenv
 PS1='$(show_virtual_env) '$PS1
-
-# activate aliases
-source "$HOME/dotfiles/aliases.sh"
-
-# activate functions
-source "$HOME/dotfiles/functions.sh"
-
-# activate complet–ion
-source "$HOME/dotfiles/bash_completion.sh"
-
-# activate environments
-source "$HOME/dotfiles/envs.sh"
-
-# activate private
-[[ -f "$HOME/.private" ]] && source "$HOME/.private"
-
