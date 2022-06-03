@@ -23,5 +23,3 @@ install_packages
 install_apps
 
 setup_direnvrc
-
-source "$(link_bash_file)"
