@@ -30,7 +30,7 @@ function install_packages() {
   brew install pyenv-virtualenv
   brew install openjdk@8
   brew install apache-spark
-  brew install  
+  brew install kubectl
   brew install minikube
   brew install docker
   brew install docker-compose  
@@ -44,5 +44,6 @@ function install_apps() {
   # brew install --cask --appdir="/Applications" dropbox
   # brew install --cask --appdir="/Applications" spotify
   brew install --cask --appdir="/Applications" virtualbox
+  brew install --cask --appdir="/Applications" docker
 
 }
