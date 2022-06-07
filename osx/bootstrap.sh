@@ -12,7 +12,28 @@ function install_packages() {
 
 	install_brew
 
-	packages=("git" "bash-completion@2" "direnv" "wget" "tree" "htop" "tfenv" "pre-commit" "coreutils" "pyenv" "virtualenv" "pyenv-virtualenv" "openjdk@8" "apache-spark" "kubectl" "minikube" "docker" "docker-compose" "jump")
+	packages=(
+		"git"
+		"bash-completion@2"
+		"direnv"
+		"wget"
+		"tree"
+		"htop"
+		"tfenv"
+		"pre-commit"
+		"coreutils"
+		"pyenv"
+		"virtualenv"
+		"pyenv-virtualenv"
+		"openjdk@8"
+		"apache-spark"
+		"kubectl"
+		"minikube"
+		"docker"
+		"docker-compose"
+		"jump"
+		"shfmt"
+	)
 
 	# install packages
 	for package in ${packages[@]}; do
@@ -25,7 +46,10 @@ function install_packages() {
 }
 
 function install_apps() {
-	apps=("virtualbox" "docker")
+	apps=(
+		"virtualbox"
+		"docker"
+	)
 
 	# install apps
 	for app in ${apps[@]}; do
