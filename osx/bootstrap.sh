@@ -33,7 +33,8 @@ function install_packages() {
   brew install kubectl
   brew install minikube
   brew install docker
-  brew install docker-compose  
+  brew install docker-compose
+  brew install jump
 
   # install cask
   brew tap homebrew/cask
