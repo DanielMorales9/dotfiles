@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # activate direnv
 eval "$(direnv hook bash)"
 

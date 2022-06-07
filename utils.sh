@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function get_os_code() {
 	unameOut="$(uname -s)"
 	case "${unameOut}" in
@@ -11,7 +13,7 @@ function get_os_code() {
 function exists() {
 	TRUE=1
 	FALSE=0
-	if ! command -v $1 &>/dev/null; then
+	if ! command -v "$1" &>/dev/null; then
 		echo "$FALSE"
 	else
 		echo "$TRUE"

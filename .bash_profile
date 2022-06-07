@@ -7,7 +7,7 @@ source "$HOME/dotfiles/aliases.sh"
 source "$HOME/dotfiles/functions.sh"
 
 # activate completion
-source "$HOME/dotfiles/bash_completion.sh"
+source "$HOME/dotfiles/completion.sh"
 
 # activate tools
 source "$HOME/dotfiles/tools.sh"

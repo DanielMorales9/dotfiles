@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias ll='ls -la'   # list all
 alias l.='ls -d .*' # hidden files
 

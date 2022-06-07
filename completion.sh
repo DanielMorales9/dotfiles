@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # bash completions
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 
@@ -30,18 +32,24 @@ link_cmd_completion $_docker_etc $_docker_compose
 
 # SOURCE COMPLETION
 # git completion
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/${_git_completion}"
 # git prompt
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/${_git_prompt}"
 
 # docker completion
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/${_docker}"
 # docker-compose completion
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/${_docker-compose}"
 
 # kubectl completion
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/kubectl"
 complete -F __start_kubectl k
 
 # minikube completion
+# shellcheck source=/dev/null
 source "${COMPLETION_DIR}/minikube"
