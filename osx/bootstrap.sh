@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function install_brew() {
 	brew_url="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 
@@ -33,13 +35,12 @@ function install_packages() {
 		"docker-compose"
 		"jump"
 		"shfmt"
-
-
+		"shellcheck"
 	)
 
 	# install packages
-	for package in ${packages[@]}; do
-		brew install $package
+	for package in "${packages[@]}"; do
+		brew install "$package"
 	done
 
 	# install cask
@@ -54,8 +55,7 @@ function install_apps() {
 	)
 
 	# install apps
-	for app in ${apps[@]}; do
-		brew install --cask --appdir="/Applications" $app
+	for app in "${apps[@]}"; do
+		brew install --cask --appdir="/Applications" "$app"
 	done
-
 }

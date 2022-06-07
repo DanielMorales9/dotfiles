@@ -1,5 +1,6 @@
+repos:
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: master  # or specific git tag
+  rev: 2.1.6  # or specific git tag
   hooks:
     - id: git-check  # Configure in .gitattributes
     - id: git-dirty  # Configure in .gitignore
