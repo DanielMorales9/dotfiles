@@ -33,8 +33,9 @@ function install_packages() {
 		"docker-compose"
 		"jump"
 		"shfmt"
+
+
 	)
-	
 
 	# install packages
 	for package in ${packages[@]}; do
