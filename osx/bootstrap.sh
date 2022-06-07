@@ -34,6 +34,7 @@ function install_packages() {
 		"jump"
 		"shfmt"
 		"shellcheck"
+		"helm"
 	)
 
 	# install packages
