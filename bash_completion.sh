@@ -2,7 +2,7 @@
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 
 function get_cmd_completion() {
-	[[ ! -f "${COMPLETION_DIR}/$2" ]] && wget -O "${COMPLETION_DIR}/$2" "${$1}/$2"
+	[[ ! -f "${COMPLETION_DIR}/$2" ]] && wget -O "${COMPLETION_DIR}/$2" "$1/$2"
 }
 
 function link_cmd_completion() {
@@ -19,7 +19,6 @@ get_cmd_completion $_github_url $_git_prompt
 
 get_cmd_completion $_github_url $_git_completion
 
-
 # docker completion preparation
 _docker_etc="/Applications/Docker.app/Contents/Resources/etc"
 _docker="docker"
@@ -28,7 +27,6 @@ _docker_compose="docker-compose.bash-completion"
 link_cmd_completion $_docker_etc $_docker
 
 link_cmd_completion $_docker_etc $_docker_compose
-
 
 # SOURCE COMPLETION
 # git completion

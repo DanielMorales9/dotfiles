@@ -1,50 +1,35 @@
 function install_brew() {
-    brew_url="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+	brew_url="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 
-    has_brew=$(exists "brew")
-    # install brew on osx
-    if [[ ! $has_brew  ]] ;
-    then
-        /bin/bash -c "$(curl -fsSL $brew_url)"
-    fi
+	has_brew=$(exists "brew")
+	# install brew on osx
+	if [[ ! $has_brew ]]; then
+		/bin/bash -c "$(curl -fsSL $brew_url)"
+	fi
 }
-
 
 function install_packages() {
 
-  install_brew
+	install_brew
 
-  # install packages
-  brew install git
-  brew install docker
-  brew install bash-completion@2
-  brew install direnv
-  brew install wget
-  brew install tree
-  brew install htop
-  brew install tfenv
-  brew install pre-commit
-  brew install coreutils
-  brew install pyenv
-  brew install virtualenv
-  brew install pyenv-virtualenv
-  brew install openjdk@8
-  brew install apache-spark
-  brew install kubectl
-  brew install minikube
-  brew install docker
-  brew install docker-compose
-  brew install jump
+	packages=("git" "bash-completion@2" "direnv" "wget" "tree" "htop" "tfenv" "pre-commit" "coreutils" "pyenv" "virtualenv" "pyenv-virtualenv" "openjdk@8" "apache-spark" "kubectl" "minikube" "docker" "docker-compose" "jump")
 
-  # install cask
-  brew tap homebrew/cask
-  brew install cask
+	# install packages
+	for package in ${packages[@]}; do
+		brew install $package
+	done
+
+	# install cask
+	brew tap homebrew/cask
+	brew install cask
 }
 
 function install_apps() {
-  # brew install --cask --appdir="/Applications" dropbox
-  # brew install --cask --appdir="/Applications" spotify
-  brew install --cask --appdir="/Applications" virtualbox
-  brew install --cask --appdir="/Applications" docker
+	apps=("virtualbox" "docker")
+
+	# install apps
+	for app in ${apps[@]}; do
+		brew install --cask --appdir="/Applications" $app
+	done
 
 }
