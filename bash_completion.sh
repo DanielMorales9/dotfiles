@@ -1,4 +1,4 @@
-# BASH
+# bash completions
 COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
 
 function get_cmd_completion() {
@@ -44,3 +44,6 @@ source "${COMPLETION_DIR}/${_docker-compose}"
 # kubectl completion
 source "${COMPLETION_DIR}/kubectl"
 complete -F __start_kubectl k
+
+# minikube completion
+source "${COMPLETION_DIR}/minikube"

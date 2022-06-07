@@ -19,7 +19,7 @@ function exists() {
     fi
 }
 
-function setup_direnvrc() {
+function setup_direnv() {
   cat <<\EOF >> ~/.direnvrc
 # use a certain pyenv version
 use_python() {

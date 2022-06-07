@@ -1,8 +1,6 @@
 #!/bin/bash
 set -ex
 
-echo "$PWD"
-
 DESIRED_SHELL="/bin/bash"
 
 source utils.sh
@@ -22,4 +20,4 @@ install_packages
 
 install_apps
 
-setup_direnvrc
+setup_direnv
