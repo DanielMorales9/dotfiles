@@ -31,8 +31,6 @@ function install_packages() {
 		"apache-spark"
 		"kubectl"
 		"minikube"
-		"docker"
-		"docker-compose"
 		"jump"
 		"shfmt"
 		"shellcheck"
