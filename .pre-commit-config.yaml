@@ -2,3 +2,6 @@
   sha: master
   hooks:
     - id: shell-fmt
+      args:
+        - -i
+        - "2"
