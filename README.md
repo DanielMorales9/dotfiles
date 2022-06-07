@@ -7,8 +7,7 @@ Useful dotfiles for terminal configuration on OSX and ~~Linux~~ machines.
 
 ## Installation instructions
  Clone the repository in your `$HOME` folder and run the following instructions:
- 
+
 ```bash
-chmod u+x dotfiles/bootstrap.sh
 ./dotfiles/bootstrap.sh
-```     
+```
