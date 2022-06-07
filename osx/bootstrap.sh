@@ -35,6 +35,7 @@ function install_packages() {
 		"shfmt"
 		"shellcheck"
 		"helm"
+		"watch"
 	)
 
 	# install packages
