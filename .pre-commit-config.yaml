@@ -1,0 +1,4 @@
+- repo: https://github.com/pecigonzalo/pre-commit-shfmt
+  sha: master
+  hooks:
+    - id: shell-fmt
