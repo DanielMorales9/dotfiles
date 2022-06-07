@@ -34,6 +34,7 @@ function install_packages() {
 		"jump"
 		"shfmt"
 	)
+	
 
 	# install packages
 	for package in ${packages[@]}; do
