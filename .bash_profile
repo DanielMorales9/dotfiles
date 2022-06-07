@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # activate aliases
 source "$HOME/dotfiles/aliases.sh"
 
