@@ -52,6 +52,7 @@ function install_apps() {
 	apps=(
 		"virtualbox"
 		"docker"
+		"spectacle"
 	)
 
 	# install apps
