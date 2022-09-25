@@ -34,16 +34,18 @@ shopt -s histappend
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
+export GIT_EDITOR=vim
 
 # show virtualenv in PS1
 PS1='$(show_virtual_env) '$PS1
 
-SPARK_LATEST="3.2.1"
-JAVA_VERSION="1.8.0"
+# SPARK_LATEST="3.2.1"
+# JAVA_VERSION="1.8.0"
 
 # setting envs
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
-export SPARK_HOME="/usr/local/Cellar/apache-spark/$SPARK_LATEST/libexec"
-JAVA_HOME=$(/usr/libexec/java_home -v "$JAVA_VERSION")
-export JAVA_HOME
+export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+# export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
+# export SPARK_HOME="/usr/local/Cellar/apache-spark/$SPARK_LATEST/libexec"
+# JAVA_HOME=$(/usr/libexec/java_home -v "$JAVA_VERSION")
+# export JAVA_HOME

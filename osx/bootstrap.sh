@@ -5,8 +5,9 @@ function install_brew() {
 
 	has_brew=$(exists "brew")
 	# install brew on osx
-	if [[ ! $has_brew ]]; then
+	if [[ $has_brew -eq "0" ]]; then
 		/bin/bash -c "$(curl -fsSL $brew_url)"
+    export PATH="/opt/homebrew/bin:$PATH"
 	fi
 }
 
@@ -27,15 +28,14 @@ function install_packages() {
 		"pyenv"
 		"virtualenv"
 		"pyenv-virtualenv"
-		"openjdk@8"
-		"apache-spark"
 		"kubectl"
-		"minikube"
 		"jump"
 		"shfmt"
 		"shellcheck"
+		"minikube"
 		"helm"
 		"watch"
+		"jdate"
 	)
 
 	# install packages
@@ -50,7 +50,6 @@ function install_packages() {
 
 function install_apps() {
 	apps=(
-		"virtualbox"
 		"docker"
 		"spectacle"
 	)

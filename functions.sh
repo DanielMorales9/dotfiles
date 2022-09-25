@@ -89,7 +89,8 @@ layout activate ${pv_env}-${py_version}
 EOF
 
 	# ignores .envrc file
-	printf "\n.envrc" >>.gitignore
+	# temp disabled
+	# printf "\n.envrc" >>.gitignore
 
 }
 
@@ -114,4 +115,39 @@ function ansi_color() {
 	CLOSE_B="\002"
 	ANSI_ESC="\033["
 	echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
+}
+
+function restart_terminal() {
+  source "$HOME/.bash_profile"
+}
+
+
+function repeat() {
+	local start=0
+	local end=${1:-1}
+	local str="${2:-#}"
+	for _ in $(seq $start $end) ; do echo -n "${str}"; done
+}
+
+
+function print_progress_bar() {
+  count=$1
+  length=$2
+  size=$3
+  progress=$((count*100/length));
+
+  num_hashes=$(( size * progress / 100));
+  num_spaces=$((size - num_hashes))
+  progress_bar=$(repeat $num_hashes "=")
+  space_bar=$(repeat $num_spaces " ")
+  percentage=$((progress));
+  echo " $progress_bar>$space_bar ($percentage%)"
+}
+
+function date () {
+    if type -p gdate > /dev/null; then
+        gdate "$@";
+    else
+        date "$@";
+    fi
 }

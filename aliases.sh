@@ -25,9 +25,16 @@ alias gf='git fetch'
 alias gco='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
+alias gr='git rm'
+alias gst='git stash'
 
 # TODO this works only on OSX
 alias da='direnv allow'
 alias mvt='mvn -DskipTests'
 alias tf='terraform'
 alias k='kubectl'
+alias pyop="open -a PyCharm"
+alias suop="open -a Sublime\ Text"
+alias txtop="open -a TextEdit"
+alias bgop="open -g"
+

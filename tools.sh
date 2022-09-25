@@ -4,4 +4,7 @@
 eval "$(direnv hook bash)"
 
 # activate jump
-eval "$(jump shell)"
+eval "$(jump shell bash)"
+
+# activate brew
+eval "$(brew shellenv)"
