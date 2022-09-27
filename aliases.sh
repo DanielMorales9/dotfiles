@@ -33,8 +33,8 @@ alias da='direnv allow'
 alias mvt='mvn -DskipTests'
 alias tf='terraform'
 alias k='kubectl'
-alias pyop="open -a PyCharm"
-alias suop="open -a Sublime\ Text"
-alias txtop="open -a TextEdit"
-alias bgop="open -g"
+alias pyopen="open -a PyCharm"
+alias suopen="open -a Sublime\ Text"
+alias txtopen="open -a TextEdit"
+alias bgopen="open -g"
 
