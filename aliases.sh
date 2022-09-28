@@ -27,6 +27,7 @@ alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gr='git rm'
 alias gst='git stash'
+alias gfm='git fetch origin master && git merge origin master'
 
 # TODO this works only on OSX
 alias da='direnv allow'
