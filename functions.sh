@@ -54,7 +54,7 @@ function proot {
 	fi
 }
 
-DEFAULT_PY_VERSION=3.7.12
+DEFAULT_PY_VERSION=3.9.14
 function init_direnv {
 	if [[ -z "$1" ]]; then
 		version="$DEFAULT_PY_VERSION"
