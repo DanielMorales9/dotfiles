@@ -151,3 +151,11 @@ function date () {
         date "$@";
     fi
 }
+
+function filter () {
+  local function_to_apply="$1"
+  local arg
+  while read -r arg; do
+    "$function_to_apply" "$arg" && echo "$arg"
+  done
+}
