@@ -21,7 +21,7 @@ function exists() {
 }
 
 function setup_direnv() {
-	cat <<\EOF >>~/.direnvrc
+	cat <<\EOF >~/.direnvrc
 # use a certain pyenv version
 use_python() {
     if [ -n "$(which pyenv)" ]; then
