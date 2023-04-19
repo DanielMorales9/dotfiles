@@ -35,7 +35,7 @@ function install_packages() {
 		"minikube"
 		"helm"
 		"watch"
-		"jdate"
+#		"jdate"
 	)
 
 	# install packages
@@ -49,10 +49,7 @@ function install_packages() {
 }
 
 function install_apps() {
-	apps=(
-		"docker"
-		"spectacle"
-	)
+	apps=()
 
 	# install apps
 	for app in "${apps[@]}"; do
