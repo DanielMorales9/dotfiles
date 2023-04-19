@@ -3,7 +3,7 @@ set -ex
 
 DESIRED_SHELL="/bin/bash"
 
-source "$HOME/dotfiles/utils.sh"
+source "$(pwd)/utils.sh"
 
 change_shell "$DESIRED_SHELL"
 
