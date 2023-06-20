@@ -49,3 +49,4 @@ export PATH="/opt/homebrew/bin:$PATH"
 # export SPARK_HOME="/usr/local/Cellar/apache-spark/$SPARK_LATEST/libexec"
 # JAVA_HOME=$(/usr/libexec/java_home -v "$JAVA_VERSION")
 # export JAVA_HOME
+export KUBE_EDITOR="vim"
