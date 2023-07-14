@@ -41,4 +41,4 @@ alias suopen="open -a Sublime\ Text"
 alias txtopen="open -a TextEdit"
 alias jopen="open -a IntelliJ\ IDEA\ CE"
 alias bgopen="open -g"
-
+alias python="python3"
