@@ -12,50 +12,20 @@ function install_brew() {
 }
 
 function install_packages() {
-
 	install_brew
 
-	formulas=(
-		"git"
-		"bash-completion@2"
-		"direnv"
-		"wget"
-		"tree"
-		"htop"
-		"tfenv"
-		"pre-commit"
-		"coreutils"
-		"pyenv"
-		"virtualenv"
-		"pyenv-virtualenv"
-		"kubectl"
-		"jump"
-		"shfmt"
-		"shellcheck"
-		"minikube"
-		"helm"
-		"watch"
-		"derailed/k9s/k9s"
-		"docker"
-	)
-
-	# install formulas
-	for formula in "${formulas[@]}"; do
-		brew list "$formula" || brew install "$formula"
-	done
-
-	# install cask
-	brew tap homebrew/cask
-	brew install cask
+  while IFS= read -r formula; do
+    brew list "$formula" || brew install "$formula";
+  done < "$(dirname $0)/osx/formulas.list"
 }
 
 function install_apps() {
-	apps=(
-	  "google-cloud-sdk"
-	)
+  # install cask
+	brew tap homebrew/cask
+	brew install cask
 
 	# install apps
-	for app in "${apps[@]}"; do
+	while IFS= read -r formula; do
 		brew install --cask --appdir="/Applications" "$app"
-	done
+	done < "$(dirname $0)/osx/apps.list"
 }
