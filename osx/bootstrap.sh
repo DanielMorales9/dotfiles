@@ -15,7 +15,7 @@ function install_packages() {
 
 	install_brew
 
-	packages=(
+	formulas=(
 		"git"
 		"bash-completion@2"
 		"direnv"
@@ -35,12 +35,13 @@ function install_packages() {
 		"minikube"
 		"helm"
 		"watch"
-#		"jdate"
+		"derailed/k9s/k9s"
+		"docker"
 	)
 
-	# install packages
-	for package in "${packages[@]}"; do
-		brew install "$package"
+	# install formulas
+	for formula in "${formulas[@]}"; do
+		brew list "$formula" || brew install "$formula"
 	done
 
 	# install cask
@@ -49,7 +50,9 @@ function install_packages() {
 }
 
 function install_apps() {
-	apps=()
+	apps=(
+	  "google-cloud-sdk"
+	)
 
 	# install apps
 	for app in "${apps[@]}"; do

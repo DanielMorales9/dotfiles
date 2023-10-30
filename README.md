@@ -9,5 +9,6 @@ Useful dotfiles for terminal configuration on OSX and ~~Linux~~ machines.
  Clone the repository in your `$HOME` folder and run the following instructions:
 
 ```bash
-./dotfiles/bootstrap.sh
+cd dotfiles
+./bootstrap.sh
 ```

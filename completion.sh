@@ -21,15 +21,6 @@ get_cmd_completion $_github_url $_git_prompt
 
 get_cmd_completion $_github_url $_git_completion
 
-# docker completion preparation
-#_docker_etc="/Applications/Docker.app/Contents/Resources/etc"
-#_docker="docker.bash-completion"
-#_docker_compose="docker-compose.bash-completion"
-#
-#link_cmd_completion $_docker_etc $_docker
-#
-#link_cmd_completion $_docker_etc $_docker_compose
-
 # SOURCE COMPLETION
 # git completion
 # shellcheck source=/dev/null
@@ -37,13 +28,6 @@ source "${COMPLETION_DIR}/${_git_completion}"
 # git prompt
 # shellcheck source=/dev/null
 source "${COMPLETION_DIR}/${_git_prompt}"
-
-# docker completion
-# shellcheck source=/dev/null
-#source "${COMPLETION_DIR}/${_docker}"
-# docker-compose completion
-# shellcheck source=/dev/null
-#source "${COMPLETION_DIR}/${_docker-compose}"
 
 # kubectl completion
 # shellcheck source=/dev/null
