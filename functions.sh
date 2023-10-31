@@ -27,10 +27,15 @@ function extract() {
 }
 
 # prefixes git commits with ticket name
-function prefix {
-	touch prefix
+function prepare_commit_msg {
+  GIT_HOOK_FILE="$(git rev-parse --show-toplevel)/.git/hooks/prepare-commit-msg"
 
-	cat <<\EOF >>prefix
+  if [ -f $GIT_HOOK_FILE ]; then
+    echo "Git Hook 'prepare-commit-msg' already exists"
+  else
+    touch prefix
+
+    cat <<\EOF >>prefix
 #!/bin/bash
 FILE="$1"
 MESSAGE=$(cat $FILE)
@@ -41,20 +46,12 @@ fi
 echo "$TICKET $MESSAGE" > $FILE
 EOF
 
-	chmod +x prefix
-	mv prefix .git/hooks/prepare-commit-msg
+    chmod +x prefix
+    mv prefix "$GIT_HOOK_FILE"
+  fi
 }
 
-# brings you back to project root
-function proot {
-	if [[ -z "${ROOT}" ]]; then
-		echo "No Project Directory Root found. Ensure ROOT environment variable is set"
-	else
-		cd "${ROOT}" || exit
-	fi
-}
-
-DEFAULT_PY_VERSION=3.9.14
+DEFAULT_PY_VERSION=3.11.16
 function init_direnv {
 	if [[ -z "$1" ]]; then
 		version="$DEFAULT_PY_VERSION"
@@ -70,8 +67,6 @@ function init_direnv {
 
 	# writes a envrc file
 	cat <<\EOF >.envrc
-export ROOT="$(pwd)"
-
 EOF
 
 	cat <<EOF >>.envrc
@@ -97,7 +92,7 @@ EOF
 # inits project with useful stuff
 function pinit {
 	# git prefix commits
-	prefix
+	prepare_commit_msg
 
 	# setup envrc
 	init_direnv "$@"
@@ -145,11 +140,11 @@ function print_progress_bar() {
 }
 
 function date () {
-    if type -p gdate > /dev/null; then
-        gdate "$@";
-    else
-        date "$@";
-    fi
+  if type -p gdate > /dev/null; then
+      gdate "$@";
+  else
+      date "$@";
+  fi
 }
 
 function filter () {
@@ -158,9 +153,4 @@ function filter () {
   while read -r arg; do
     "$function_to_apply" "$arg" && echo "$arg"
   done
-}
-
-function delete_all_branches() {
-  # Use responsibly
-  git for-each-ref --format '%(refname:short)' refs/heads | grep -v "master\|main" | xargs git branch -D
 }
