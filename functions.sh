@@ -104,6 +104,13 @@ function show_virtual_env() {
 	fi
 }
 
+function show_rosetta() {
+	if [[ $(sysctl -n sysctl.proc_translated) -eq 1 ]]; then
+	  STYLE=$(ansi_color "35;1;4")
+		echo -e " ${STYLE}Rosetta"
+	fi
+}
+
 function ansi_color() {
 	_code="$1"
 	OPEN_B="\001"

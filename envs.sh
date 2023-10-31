@@ -33,11 +33,11 @@ export HISTIGNORE="ls:ps:history"
 shopt -s histappend
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
+export PS1='${RESET} ${YELLOW}[\t]${RESET} ${BLUE}\u@\h${RESET}:${GREEN}\w ${BOLD}${MAGENTA}$(__git_ps1 "(%s)")${RESET}\$ '
 export GIT_EDITOR=vim
 
 # show virtualenv in PS1
-PS1='$(show_virtual_env) '$PS1
+PS1='$(show_virtual_env)$(show_rosetta)'$PS1
 
 # SPARK_LATEST="3.2.1"
 # JAVA_VERSION="1.8.0"
