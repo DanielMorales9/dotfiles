@@ -30,7 +30,7 @@ function extract() {
 function prepare_commit_msg {
   GIT_HOOK_FILE="$(git rev-parse --show-toplevel)/.git/hooks/prepare-commit-msg"
 
-  if [ -f $GIT_HOOK_FILE ]; then
+  if [ -f "$GIT_HOOK_FILE" ]; then
     echo "Git Hook 'prepare-commit-msg' already exists"
   else
     touch prefix
@@ -51,7 +51,7 @@ EOF
   fi
 }
 
-DEFAULT_PY_VERSION=3.11.16
+DEFAULT_PY_VERSION=3.11.6
 function init_direnv {
 	if [[ -z "$1" ]]; then
 		version="$DEFAULT_PY_VERSION"
