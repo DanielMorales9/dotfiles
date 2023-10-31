@@ -154,3 +154,7 @@ function filter () {
     "$function_to_apply" "$arg" && echo "$arg"
   done
 }
+
+function rosetta () {
+  arch -x86_64 /bin/bash
+}
