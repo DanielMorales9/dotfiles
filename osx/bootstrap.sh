@@ -25,7 +25,7 @@ function install_apps() {
 	brew install cask
 
 	# install apps
-	while IFS= read -r formula; do
+	while IFS= read -r app; do
 		brew install --cask --appdir="/Applications" "$app"
 	done < "$(dirname $0)/osx/apps.list"
 }

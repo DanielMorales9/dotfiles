@@ -2,7 +2,7 @@
 
 function trash() { command mv "$@" ~/.Trash; }  # trash:        Moves a file to the MacOS trash
 function ql() { qlmanage -p "$*" >&/dev/null; } # ql:           Opens any file in MacOS Quicklook Preview
-function zipf() { zip -r "$1".zip "$1"; }       # zipf:         To create a ZIP archive of a folder
+function compress() { zip -r "$1".zip "$1"; }       # zipf:         To create a ZIP archive of a folder
 
 # extract:  Extract most know archives with one command
 function extract() {
