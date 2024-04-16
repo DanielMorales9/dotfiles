@@ -119,11 +119,6 @@ function ansi_color() {
 	echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
 }
 
-function restart_terminal() {
-  source "$HOME/.bash_profile"
-}
-
-
 function repeat() {
 	local start=0
 	local end=${1:-1}
