@@ -156,3 +156,61 @@ function filter () {
     "$function_to_apply" "$arg" && echo "$arg"
   done
 }
+
+function git_branch_cleanup() {
+  # Default values
+  local weeks=3
+  local dry_run=false
+  local protected_branches="master main"
+
+  # Parse arguments
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --weeks)
+        weeks="$2"
+        shift 2
+        ;;
+      --dry-run)
+        dry_run=true
+        shift
+        ;;
+      *)
+        echo "Unknown option: $1"
+        return 1
+        ;;
+    esac
+  done
+
+  # Iterate over branches and process them
+  for branch in $(git branch --format='%(refname:short)' | grep -v '^*'); do
+    if [[ $protected_branches =~ $branch ]]; then  # Exclude protected branches
+      echo "Skipping protected branch: $branch"
+      continue
+    fi
+    if [[ $branch == feat* ]]; then  # Skip branches starting with "feat"
+      echo "Skipping branch: $branch (starts with 'feat')"
+      continue
+    fi
+
+    # Get the last commit date of the branch
+    last_commit_date=$(git log -1 --format="%ci" "$branch" 2>/dev/null)
+
+    if [[ -n "$last_commit_date" ]]; then
+      # Calculate branch age in days
+      branch_age_days=$(( ($(date +%s) - $(date -d "$last_commit_date" +%s)) / 86400 ))
+      branch_age_weeks=$((branch_age_days / 7))
+
+      # Check if it's older than the threshold, and prepare to delete
+      if [[ "$branch_age_weeks" -ge "$weeks" ]]; then
+        if [[ "$dry_run" == true ]]; then
+          echo "Would delete branch: $branch (inactive for $branch_age_weeks weeks, $branch_age_days days)"
+        else
+          echo "Deleting branch: $branch (inactive for $branch_age_weeks weeks, $branch_age_days days)"
+          git branch -D "$branch"
+        fi
+      fi
+    fi
+  done
+}
+
+
