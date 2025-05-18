@@ -47,3 +47,4 @@ export PATH="/opt/homebrew/bin:$PATH"
 # JAVA_HOME=$(/usr/libexec/java_home -v "$JAVA_VERSION")
 # export JAVA_HOME
 export KUBE_EDITOR="vim"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
