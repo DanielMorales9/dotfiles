@@ -1,0 +1,25 @@
+[user]
+	name = Daniel Morales
+	email = PERSONAL_EMAIL_PLACEHOLDER
+	signingKey = ""
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = subl -n -w
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+	ff = only
+[push]
+	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
