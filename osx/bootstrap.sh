@@ -20,10 +20,6 @@ function install_packages() {
 }
 
 function install_apps() {
-  # install cask
-	brew tap homebrew/cask
-	brew install cask
-
 	# install apps
 	while IFS= read -r app; do
 		brew install --cask --appdir="/Applications" "$app"
