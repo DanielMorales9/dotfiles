@@ -17,7 +17,7 @@ shellcheck
 minikube
 helm
 watch
-derailed/k9s/k9s
+k9s
 docker
 skaffold
 docker-buildx
