@@ -4,6 +4,7 @@ set -ex
 DESIRED_SHELL="/bin/bash"
 
 source "$HOME/dotfiles/utils.sh"
+source "$HOME/dotfiles/git/setup.sh"
 
 change_shell "$DESIRED_SHELL"
 
@@ -20,6 +21,8 @@ install_packages
 install_apps
 
 setup_direnv
+
+setup_git_config
 
 _bash_file="$(link_bash_file)"
 
