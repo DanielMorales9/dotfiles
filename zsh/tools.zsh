@@ -22,3 +22,6 @@ if (( $+commands[pyenv] )); then
 	[[ -n "$_pyenv_virtualenv_init" ]] && eval "$_pyenv_virtualenv_init"
 	unset _pyenv_virtualenv_init
 fi
+
+# activate sdkman
+[[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

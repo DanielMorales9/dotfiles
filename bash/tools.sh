@@ -23,3 +23,8 @@ if command -v pyenv >/dev/null; then
 	[[ -n "$_pyenv_virtualenv_init" ]] && eval "$_pyenv_virtualenv_init"
 	unset _pyenv_virtualenv_init
 fi
+
+# activate sdkman (requires bash 4+; macOS /bin/bash is 3.2)
+if [[ ${BASH_VERSINFO[0]} -ge 4 ]] && [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+	source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
