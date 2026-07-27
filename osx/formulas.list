@@ -21,3 +21,5 @@ k9s
 docker
 skaffold
 docker-buildx
+postgresql
+sbt

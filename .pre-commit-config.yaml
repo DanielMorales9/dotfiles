@@ -3,5 +3,8 @@ repos:
   rev: 2.1.6  # or specific git tag
   hooks:
     - id: git-dirty  # Configure in .gitignore
+    # neither shellcheck nor shfmt understands zsh syntax
     - id: shellcheck
+      exclude: '\.zsh$'
     - id: shfmt
+      exclude: '\.zsh$'

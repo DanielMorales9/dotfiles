@@ -119,11 +119,12 @@ function ansi_color() {
 	echo -e "${OPEN_B}${ANSI_ESC}${_code}m${CLOSE_B}"
 }
 
-function repeat() {
+# not named "repeat": that is a reserved word in zsh (the "repeat N { ... }" loop)
+function repeat_str() {
 	local start=0
 	local end=${1:-1}
 	local str="${2:-#}"
-	for _ in $(seq $start $end) ; do echo -n "${str}"; done
+	for _ in $(seq $start "$end") ; do echo -n "${str}"; done
 }
 
 
@@ -135,8 +136,8 @@ function print_progress_bar() {
 
   num_hashes=$(( size * progress / 100));
   num_spaces=$((size - num_hashes))
-  progress_bar=$(repeat $num_hashes "=")
-  space_bar=$(repeat $num_spaces " ")
+  progress_bar=$(repeat_str $num_hashes "=")
+  space_bar=$(repeat_str $num_spaces " ")
   percentage=$((progress));
   echo " $progress_bar>$space_bar ($percentage%)"
 }
@@ -145,7 +146,7 @@ function date () {
   if type -p gdate > /dev/null; then
       gdate "$@";
   else
-      date "$@";
+      command date "$@";
   fi
 }
 
@@ -161,7 +162,8 @@ function git_branch_cleanup() {
   # Default values
   local weeks=3
   local dry_run=false
-  local protected_branches="master main"
+  # padded so the match below is whole-word, not a substring
+  local protected_branches=" master main "
 
   # Parse arguments
   while [[ $# -gt 0 ]]; do
@@ -183,7 +185,7 @@ function git_branch_cleanup() {
 
   # Iterate over branches and process them
   for branch in $(git branch --format='%(refname:short)' | grep -v '^*'); do
-    if [[ $protected_branches =~ $branch ]]; then  # Exclude protected branches
+    if [[ $protected_branches == *" $branch "* ]]; then  # Exclude protected branches
       echo "Skipping protected branch: $branch"
       continue
     fi

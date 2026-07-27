@@ -41,5 +41,4 @@ alias txtopen="open -a TextEdit"
 alias jopen="open -a IntelliJ\ IDEA\ CE"
 alias bgopen="open -g"
 alias python="python3"
-alias reload="source '$HOME/.bash_profile'"
-alias rosetta="arch -x86_64 /bin/bash"
+# reload/rosetta are shell-specific: see bash/aliases.sh and zsh/aliases.zsh

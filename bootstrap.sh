@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-DESIRED_SHELL="/bin/bash"
+DESIRED_SHELL="/bin/zsh"
 
 source "$HOME/dotfiles/utils.sh"
 source "$HOME/dotfiles/git/setup.sh"
@@ -20,11 +20,15 @@ install_packages
 
 install_apps
 
+install_sdkman
+
 setup_direnv
 
 setup_git_config
 
-_bash_file="$(link_bash_file)"
+_shell_rc="$(link_shell_rc "$DESIRED_SHELL")"
 
-# shellcheck source=/dev/null
-source "$HOME/${_bash_file}"
+# validate with the shell being installed: bash cannot parse zsh syntax
+"$DESIRED_SHELL" -c ". '${_shell_rc}'"
+
+echo "Done. Open a new terminal (or run 'exec ${DESIRED_SHELL}') to pick up the new shell."
