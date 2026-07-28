@@ -27,7 +27,7 @@ if [ -n "$_dotfiles_shell" ]; then
 
 	# envs before completion/tools, prompt last: bash's PS1 needs __git_ps1, which
 	# completion.sh provides, and both shells want direnv/pyenv hooked up first
-	for _dotfiles_part in envs aliases completion tools prompt; do
+	for _dotfiles_part in envs aliases completion tools keybindings prompt; do
 		_dotfiles_file="$DOTFILES_DIR/${_dotfiles_shell}/${_dotfiles_part}.${_dotfiles_ext}"
 		# shellcheck source=/dev/null
 		[ -f "$_dotfiles_file" ] && . "$_dotfiles_file"
@@ -35,6 +35,12 @@ if [ -n "$_dotfiles_shell" ]; then
 
 	# shellcheck source=/dev/null
 	[ -f "$HOME/.private" ] && . "$HOME/.private"
+
+	# zsh-only: print a random tip at the end of startup
+	if [ "$_dotfiles_shell" = "zsh" ] && [ -t 1 ]; then
+		_dotfiles_tipfile="$DOTFILES_DIR/zsh/tips.zsh"
+		[ -f "$_dotfiles_tipfile" ] && . "$_dotfiles_tipfile"
+	fi
 fi
 
 unset _dotfiles_shell _dotfiles_ext _dotfiles_part _dotfiles_file

@@ -25,3 +25,7 @@ fi
 
 # activate sdkman
 [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# activate zsh-autosuggestions (ghost-text from history as you type)
+[[ -f "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && \
+	source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
