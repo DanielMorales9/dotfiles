@@ -39,7 +39,7 @@ function _record_cmd_start() {
 function _show_cmd_runtime() {
 	local secs=0
 	if [[ -n "$_CMD_START" ]]; then
-		secs=$(( (int(EPOCHREALTIME) - int(_CMD_START)) ))
+		secs=$(( ${EPOCHREALTIME%.*} - ${_CMD_START%.*} ))
 	fi
 	if [[ $secs -gt 3 ]]; then
 		local mins=$(( secs / 60 ))
