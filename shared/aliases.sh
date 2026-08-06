@@ -38,7 +38,7 @@ alias k='kubectl'
 alias pyopen="open -a PyCharm"
 alias suopen="open -a Sublime\ Text"
 alias txtopen="open -a TextEdit"
-alias jopen="open -a IntelliJ\ IDEA\ CE"
+alias jopen="open -a IntelliJ\ IDEA"
 alias bgopen="open -g"
 alias python="python3"
 # reload/rosetta are shell-specific: see bash/aliases.sh and zsh/aliases.zsh
